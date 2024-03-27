@@ -1,10 +1,8 @@
 import React from 'react';
- export default function Home(){
+ export default function Home(props){
+    console.warn("Home",props)
     return(
         <div>
-            <div className='add-to-cart'>
-                    <img src='https://media.istockphoto.com/id/1201806395/vector/shopping-cart-line-icon-black-editable-stroke-trolley-basket-business-concept-shopping-cart.jpg?s=612x612&w=0&k=20&c=KmXx8oRPoNgNzwhxu3zCsacUF-HSVMtpvGEi3hBbe2w='></img>
-                </div>
             <h1>Home Component</h1>
             <div className='cart-wrapper'>
                 <div className='img-wrapper item'>
@@ -19,7 +17,17 @@ import React from 'react';
                     </span>
                 </div>
                 <div className='btn-wrapper item'>
-                    <button>Add to Cart</button>
+                    <button   onClick={
+                        ()=>{props.addCartToHandler({pice:1000,name:'i phone 11'})}
+                        }>
+                        Add to Cart</button>
+                        <br>
+                        </br>
+                        <br></br>
+                        <button   onClick={
+                        ()=>{props.removeCartToHandler()}
+                        }>
+                        Remove to Cart</button>
                 </div>
             </div>
         </div>
